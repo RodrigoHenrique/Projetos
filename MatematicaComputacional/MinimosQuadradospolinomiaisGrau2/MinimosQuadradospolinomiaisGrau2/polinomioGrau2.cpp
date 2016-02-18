@@ -142,6 +142,8 @@ double polinomioGrau2::getDeltaC()
 	return (sX4*sX2*sY + sX3*sYX*sX2 + sYX2*sX3*sX) - (sYX2*sX2*sX2 + sYX*sX*sX4 + sY*sX3*sX3);
 }
 
+//Erros estranhos ao usar determinante. Favor usar escalonamento.
+
 double polinomioGrau2::getA()
 {
 	return deltaA/delta;
