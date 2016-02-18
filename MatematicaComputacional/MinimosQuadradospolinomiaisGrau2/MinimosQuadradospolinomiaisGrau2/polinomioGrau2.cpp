@@ -57,7 +57,7 @@ double polinomioGrau2::getSX4()
 	double soma=0;
 	for(int i=0;i < n;i++)
 	{
-		soma+=x[i]*x[i]*x[i]*x[i];
+		soma+=(x[i]*x[i]*x[i]*x[i]);
 	}
 	return soma;
 }
@@ -67,7 +67,7 @@ double polinomioGrau2::getSX3()
 	double soma=0;
 	for(int i=0;i < n;i++)
 	{
-		soma+=x[i]*x[i]*x[i];
+		soma+=(x[i]*x[i]*x[i]);
 	}
 	return soma;
 }
@@ -77,7 +77,7 @@ double polinomioGrau2::getSX2()
 	double soma=0;
 	for(int i=0;i < n;i++)
 	{
-		soma+=x[i]*x[i];
+		soma+=(x[i]*x[i]);
 	}
 	return soma;
 }
@@ -97,7 +97,7 @@ double polinomioGrau2::getSYX2()
 	double soma=0;
 	for(int i=0;i < n;i++)
 	{
-		soma+=x[i]*y[i]*y[i];
+		soma+=(x[i]*y[i]*y[i]);
 	}
 	return soma;
 }
@@ -107,7 +107,7 @@ double polinomioGrau2::getSYX()
 	double soma=0;
 	for(int i=0;i < n;i++)
 	{
-		soma+=x[i]*y[i];
+		soma+=(x[i]*y[i]);
 	}
 	return soma;
 }
@@ -124,22 +124,22 @@ double polinomioGrau2::getSY()
 
 double polinomioGrau2::getDelta()
 {
-	return sX4*sX2*n - sX2*sX2;
+	return (sX4*sX2*n + sX3*sX*sX2 + sX2*sX3*sX) - (sX2*sX2*sX2 + sX*sX*sX4 + n*sX3*sX3);
 }
 
 double polinomioGrau2::getDeltaA()
 {
-	return sYX2*sX2*n + sX3*sX*sY + sX2*sYX*sX - sX2*sX2*sY - sY*sX*sYX2 - n*sX3*sYX;
+	return (sYX2*sX2*n + sX3*sX*sY + sX2*sYX*sX) - (sX2*sX2*sY + sY*sX*sYX2 + n*sX3*sYX);
 }
 
 double polinomioGrau2::getDeltaB()
 {
-	return sX4*sYX*n + sYX2*sX*sX2 + sX2*sX3*sY - sX2*sYX*sX2 - sX*sY*sX4 - n*sYX2*sX3;
+	return (sX4*sYX*n + sYX2*sX*sX2 + sX2*sX3*sY) - (sX2*sYX*sX2 + sX*sY*sX4 + n*sYX2*sX3);
 }
 
 double polinomioGrau2::getDeltaC()
 {
-	return sX4*sX2*sY + sX3*sYX*sX2 + sYX2*sX3*sX - sYX2*sX2*sX2 - sYX*sX*sX4 - sY*sX3*sX3;
+	return (sX4*sX2*sY + sX3*sYX*sX2 + sYX2*sX3*sX) - (sYX2*sX2*sX2 + sYX*sX*sX4 + sY*sX3*sX3);
 }
 
 double polinomioGrau2::getA()
