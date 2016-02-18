@@ -5,9 +5,14 @@
 using std::cout;
 using std::cin;
 using std::vector;
+using std::fixed;
 
 Linear::Linear()
 {
+    cout << "\nInserindo Pontos...\n\n";
+    getXY();
+    getN();
+    getFuncao();
 }
 
 Linear::~Linear()
@@ -18,17 +23,18 @@ void Linear::getXY()
 {
 
 	int resp;
-	cout << "Inserir ponto? 1 - sim : ";
+	cout << "\n???Inserir ponto??? <1 - sim> : ";
 	cin >> resp;
+    cout << "\n";
 	if(resp == 1)
 	{
 		double elemX,elemY;
 		
-		cout << "Elemento de X, indice " << x.size() + 1 << ": ";
+		cout << "Elemento de X[" << x.size() + 1 << "]: ";
 		cin >> elemX;
 		x.push_back(elemX);
 	
-		cout << "Elemento de Y, indice " << y.size() + 1 << ": ";
+		cout << "Elemento de Y[" << y.size() + 1 << "]: ";
 		cin >> elemY;
 		y.push_back(elemY);
 		
@@ -40,16 +46,16 @@ void Linear::getXY()
 	}
 }
 
-int Linear::getN()
+void Linear::getN()
 {
-	if(x.size() == y.size()) return x.size();
-	else return -1;
+	if(x.size() == y.size()) n = x.size();
+	else n = -1;
 }
 
 double Linear::getSX()
 {
 	double soma=0;
-	for(int i=0;i < x.size();i++)
+	for(int i=0;i < n;i++)
 	{
 		soma+=x[i];
 	}
@@ -59,7 +65,7 @@ double Linear::getSX()
 double Linear::getSY()
 {
 	double soma=0;
-	for(int i=0;i < y.size();i++)
+	for(int i=0;i < n;i++)
 	{
 		soma+=y[i];
 	}
@@ -69,7 +75,7 @@ double Linear::getSY()
 double Linear::getSX2()
 {
 	double soma=0;
-	for(int i=0;i < x.size();i++)
+	for(int i=0;i < n;i++)
 	{
 		soma+=(x[i])*(x[i]);
 	}
@@ -79,7 +85,7 @@ double Linear::getSX2()
 double Linear::getSXY()
 {
 	double soma=0;
-	for(int i=0;i < x.size();i++)
+	for(int i=0;i < n;i++)
 	{
 		soma+=(x[i])*(y[i]);
 	}
@@ -98,12 +104,12 @@ double Linear::getDeltab()
 
 double Linear::getB()
 {
-	return Db*(1/D);
+	return Db/D;
 }
 
 double Linear::getA()
 {
-	return sY*(1/n) - b*sX*(1/n);
+	return sY/n - (b*sX)/n;
 }
 
 void Linear::getFuncao()
@@ -125,11 +131,11 @@ void Linear::imprimeFuncao() const
 {
 	if(n != -1)
 	{
-		cout << "A funcao resultante e: " << a << " + " << b << "x \n\n";
+		cout << "A funcao resultante e: f(x) = " << fixed << a << " + " << fixed << b << "x \n\n";
 	}
 	else
 	{
-		cout << "Deu erro.\n\n";
+		cout << "Deu erro.\n\n";   //Para o inverossimil caso dos vetores de x e y nao terem o mesmo tamanho.
 	}
 }
 

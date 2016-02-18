@@ -10,7 +10,7 @@ public:
 	Linear();
 	~Linear();
 	void getXY();
-	int getN();
+	void getN();
 	double getSX();
 	double getSY();
 	double getSX2();

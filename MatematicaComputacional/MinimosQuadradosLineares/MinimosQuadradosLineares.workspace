@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Workspace Name="MinimosQuadradosLineares" Database="">
   <Project Name="MinimosQuadradosLineares" Path="MinimosQuadradosLineares/MinimosQuadradosLineares.project" Active="Yes"/>
+  <Project Name="MinimosQuadradosPolinomiaisDeGrau2" Path="../MinimosQuadradosPolinomiaisDeGrau2/MinimosQuadradosPolinomiaisDeGrau2.project"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Debug" Selected="yes">
+      <Environment/>
       <Project Name="MinimosQuadradosLineares" ConfigName="Debug"/>
+      <Project Name="MinimosQuadradosPolinomiaisDeGrau2" ConfigName="Debug"/>
     </WorkspaceConfiguration>
     <WorkspaceConfiguration Name="Release" Selected="yes">
+      <Environment/>
       <Project Name="MinimosQuadradosLineares" ConfigName="Release"/>
+      <Project Name="MinimosQuadradosPolinomiaisDeGrau2" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
 </CodeLite_Workspace>
