@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Session Name="C:\Users\RodrigoHenrique.FACOMP-PC\git\Projetos\MatematicaComputacional\MinimosQuadradosLineares\MinimosQuadradosLineares.workspace">
-  <int Value="2" Name="m_selectedTab"/>
-  <wxString Value="C:\Users\RodrigoHenrique.FACOMP-PC\git\Projetos\MatematicaComputacional\MinimosQuadradosLineares\MinimosQuadradosLineares.workspace" Name="m_workspaceName"/>
+<Session Name="C:\Users\FACOMP\git\Projetos\MatematicaComputacional\MinimosQuadradosLineares\MinimosQuadradosLineares.workspace">
+  <int Value="0" Name="m_selectedTab"/>
+  <wxString Value="C:\Users\FACOMP\git\Projetos\MatematicaComputacional\MinimosQuadradosLineares\MinimosQuadradosLineares.workspace" Name="m_workspaceName"/>
   <TabInfoArray Name="TabInfoArray">
     <TabInfo>
-      <wxString Value="C:\Users\RodrigoHenrique.FACOMP-PC\git\Projetos\MatematicaComputacional\MinimosQuadradosLineares\MinimosQuadradosLineares\Linear.cpp" Name="FileName"/>
+      <wxString Value="C:\Users\FACOMP\git\Projetos\MatematicaComputacional\MinimosQuadradosLineares\MinimosQuadradosLineares\main.cpp" Name="FileName"/>
       <int Value="0" Name="FirstVisibleLine"/>
-      <int Value="0" Name="CurrentLine"/>
+      <int Value="11" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
-      <wxString Value="C:\Users\RodrigoHenrique.FACOMP-PC\git\Projetos\MatematicaComputacional\MinimosQuadradosLineares\MinimosQuadradosLineares\Linear.h" Name="FileName"/>
-      <int Value="0" Name="FirstVisibleLine"/>
-      <int Value="0" Name="CurrentLine"/>
+      <wxString Value="C:\Users\FACOMP\git\Projetos\MatematicaComputacional\MinimosQuadradosLineares\MinimosQuadradosLineares\Linear.cpp" Name="FileName"/>
+      <int Value="99" Name="FirstVisibleLine"/>
+      <int Value="139" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
-      <wxString Value="C:\Users\RodrigoHenrique.FACOMP-PC\git\Projetos\MatematicaComputacional\MinimosQuadradosLineares\MinimosQuadradosLineares\main.cpp" Name="FileName"/>
+      <wxString Value="C:\Users\FACOMP\git\Projetos\MatematicaComputacional\MinimosQuadradosLineares\MinimosQuadradosLineares\Linear.h" Name="FileName"/>
       <int Value="0" Name="FirstVisibleLine"/>
-      <int Value="0" Name="CurrentLine"/>
+      <int Value="14" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
