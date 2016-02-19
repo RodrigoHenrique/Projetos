@@ -1,5 +1,4 @@
-maxL2([X|Xs],M):-maxLAcc(Xs,X,M).
+reverse2(L,Y):-reverseAcc(L,[],Y).
 
-maxLAcc([X|Xs],Acc,M):-Acc>X,!,maxLAcc(Xs,Acc,M).
-maxLAcc([X|Xs],_,M):-maxLAcc(Xs,X,M).
-maxLAcc([],M,M).
+reverseAcc([X|Xs],Acc,Y):-reverseAcc(Xs,[X|Acc],Y).
+reverseAcc([],Y,Y).
