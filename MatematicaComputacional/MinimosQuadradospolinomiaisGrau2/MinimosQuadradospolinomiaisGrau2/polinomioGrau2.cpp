@@ -12,7 +12,8 @@ polinomioGrau2::polinomioGrau2()
     cout << "\nInserindo Pontos...\n\n";
     getXY();
     getN();
-    getFuncao();
+    setMatriz();
+    setABC();
 }
 
 polinomioGrau2::~polinomioGrau2()
@@ -122,44 +123,24 @@ double polinomioGrau2::getSY()
 	return soma;
 }
 
-double polinomioGrau2::getDelta()
-{
-	return (sX4*sX2*n + sX3*sX*sX2 + sX2*sX3*sX) - (sX2*sX2*sX2 + sX*sX*sX4 + n*sX3*sX3);
-}
-
-double polinomioGrau2::getDeltaA()
-{
-	return (sYX2*sX2*n + sX3*sX*sY + sX2*sYX*sX) - (sX2*sX2*sY + sY*sX*sYX2 + n*sX3*sYX);
-}
-
-double polinomioGrau2::getDeltaB()
-{
-	return (sX4*sYX*n + sYX2*sX*sX2 + sX2*sX3*sY) - (sX2*sYX*sX2 + sX*sY*sX4 + n*sYX2*sX3);
-}
-
-double polinomioGrau2::getDeltaC()
-{
-	return (sX4*sX2*sY + sX3*sYX*sX2 + sYX2*sX3*sX) - (sYX2*sX2*sX2 + sYX*sX*sX4 + sY*sX3*sX3);
-}
-
 //Erros estranhos ao usar determinante. Favor usar escalonamento.
 
 double polinomioGrau2::getA()
 {
-	return deltaA/delta;
+	return a;
 }
 
 double polinomioGrau2::getB()
 {
-	return deltaB/delta;
+	return this->b;
 }
 
 double polinomioGrau2::getC()
 {
-	return deltaC/delta;
+	return this->c;
 }
 
-void polinomioGrau2::getFuncao()
+void polinomioGrau2::setMatriz()
 {
 	this->sX = getSX();
 	this->sY = getSY();
@@ -172,21 +153,77 @@ void polinomioGrau2::getFuncao()
 		this->sYX2 = getSYX2();
 		this->sYX = getSYX();
 		this->sY = getSY();
-		this->delta = getDelta();
-		this->deltaA = getDeltaA();
-		this->deltaB = getDeltaB();
-		this->deltaC = getDeltaC();
-		this->a = getA();
-		this->b = getB();
-		this->c = getC();
+		
+		this->A[0][0] = sX4;
+		this->A[0][1] = sX3;
+		this->A[0][2] = sX2;
+		this->A[0][3] = sYX2;
+		this->A[1][0] = sX3;
+		this->A[1][1] = sX2;
+		this->A[1][2] = sX;
+		this->A[1][3] = sYX;
+		this->A[2][0] = sX2;
+		this->A[2][1] = sX;
+		this->A[2][2] = n;
+		this->A[2][3] = sY;
 	}
+}
+
+void polinomioGrau2::setABC()
+{
+	alpha = (float) A[0][0]/A[1][0];
+	
+	for(int i=0;i<4;i++)
+	{
+		A[1][i] = A[0][i] - alpha*A[1][i];
+	}
+	
+	alpha = (float) A[0][0]/A[2][0];
+	
+	for(int i=0;i<4;i++)
+	{
+		A[2][i] = A[0][i] - alpha*A[2][i];
+	}
+	
+	alpha = (float) A[1][1]/A[2][1];
+	
+	for(int i=1;i<4;i++)
+	{
+		A[2][i] = A[1][i] - alpha*A[2][i];
+	}
+	
+	alpha = A[0][0];
+	
+	for(int i=0;i<4;i++)
+	{
+		A[0][i] = (float) A[0][i]/alpha;
+	}
+	
+	alpha = A[1][1];
+	
+	for(int i=1;i<4;i++)
+	{
+		A[1][i] = (float) A[1][i]/alpha;
+	}
+	
+	alpha = A[2][2];
+	
+	for(int i=2;i<4;i++)
+	{
+		A[2][i] = (float) A[2][i]/alpha;
+	}
+	
+	this->c = A[2][3];
+	this->b = A[1][3] - c*A[1][2];
+	this->a = A[0][3] - b*A[0][1] - c*A[0][2];
 }
 
 void polinomioGrau2::imprimeFuncao() const
 {
 	if(n != -1)
 	{
-		cout << "A funcao resultante e: f(x) = " << fixed << a << "x^2 + " << fixed << b << "x + " << fixed << c << "\n\n";
+		
+		cout << "A funcao resultante e: f(x) = " << fixed << this->a << "x^2 + " << fixed << this->b << "x + " << fixed << this->c << "\n\n";
 	}
 	else
 	{

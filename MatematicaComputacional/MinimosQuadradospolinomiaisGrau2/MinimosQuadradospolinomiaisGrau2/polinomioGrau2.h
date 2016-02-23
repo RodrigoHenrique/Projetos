@@ -18,15 +18,12 @@ public:
 	double getSYX2();
 	double getSYX();
 	double getSY();
-	double getDelta();
-	double getDeltaA();
-	double getDeltaB();
-	double getDeltaC();
 	double getA();
 	double getB();
 	double getC();
-	void getFuncao();
+	void setMatriz();
 	void imprimeFuncao() const;
+	void setABC();
 	
 private:
 	double a;
@@ -43,6 +40,8 @@ private:
     double sYX;
     double sY;
 	double delta,deltaA,deltaB,deltaC;
+	double A[3][4];
+	double alpha;
 	
 };
 
