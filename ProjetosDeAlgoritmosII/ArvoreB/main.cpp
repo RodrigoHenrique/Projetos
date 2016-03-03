@@ -1,7 +1,14 @@
-#include <stdio.h>
+#include <iostream>
+#include "ArvoreB.h"
+
+using std::cout;
 
 int main(int argc, char **argv)
 {
-	printf("hello world\n");
+	cout << "hello world\n";
+    
+    ArvoreB tree1;
+    ArvoreB::insereChave(1,tree1);
+    
 	return 0;
 }

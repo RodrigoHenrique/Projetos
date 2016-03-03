@@ -14,6 +14,7 @@ public:
     void incTotalChaves();
     void decTotalChaves();
     static void insereChave(const int &,ArvoreB &);
+    const static void imprimeArvore(const ArvoreB &);
     void insereElemento(const int &);
     void inicializaChaves();
     void inicializaFilhas();
@@ -35,8 +36,6 @@ public:
     bool getChaveApontaNull() const;
     void setFilhaApontaNull();
     bool getFilhaApontaNull() const;
-    
-    ArvoreB retornaFilha() const;
     
 private:
     short int totalChaves;

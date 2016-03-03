@@ -156,3 +156,17 @@ void ArvoreB::inicializaFilhas()
 {
      filha = new ArvoreB[D];
 }
+
+const void ArvoreB::imprimeArvore(const ArvoreB &tree)
+{
+    if(tree.filha != 0)
+    {
+        ArvoreB newTree = tree.filha[tree.getTotalFilhas()];
+        for(int i=0;i<tree.getTotalFilhas();i++) imprimeArvore(newTree[i]);
+        
+    }
+    else
+    {
+        
+    }
+}
