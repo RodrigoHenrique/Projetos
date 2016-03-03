@@ -74,7 +74,9 @@ void ArvoreB::insereChave(const int &valor,ArvoreB &tree)
             }
             else
             {
-                
+                ArvoreB newTree = tree.filha[tree.getTotalFilhas()];
+                insereChave(valor,newTree);
+                tree.incTotalFilhas();
             }
         }
     }
