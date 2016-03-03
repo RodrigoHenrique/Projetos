@@ -7,6 +7,8 @@ public:
     ArvoreB();
     ~ArvoreB();
     
+    const ArvoreB &operator=(const ArvoreB &);
+    
     const static int D;
     
     void incTotalChaves();
@@ -14,7 +16,7 @@ public:
     static void insereChave(const int &,ArvoreB &);
     void insereElemento(const int &);
     void inicializaChaves();
-    void insereFilha();
+    void inicializaFilhas();
     void buscaChave(const int &);
     void removeChave(const int &);
     
@@ -31,6 +33,10 @@ public:
     
     void setChaveApontaNull();
     bool getChaveApontaNull() const;
+    void setFilhaApontaNull();
+    bool getFilhaApontaNull() const;
+    
+    ArvoreB retornaFilha() const;
     
 private:
     short int totalChaves;
@@ -41,6 +47,7 @@ private:
     bool inseriuChave;
     
     bool chaveApontaNull;
+    bool filhaApontaNull;
 
 };
 

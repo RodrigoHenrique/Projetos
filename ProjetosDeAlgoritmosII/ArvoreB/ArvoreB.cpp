@@ -17,6 +17,23 @@ ArvoreB::~ArvoreB()
     delete [] filha;
 }
 
+const ArvoreB & ArvoreB::operator =(const ArvoreB &treeAtrib)
+{
+    totalChaves = treeAtrib.totalChaves;
+    totalFilhas = treeAtrib.totalFilhas;
+    inseriuChave = treeAtrib.inseriuChave;
+    chaveApontaNull = treeAtrib.chaveApontaNull;
+    filhaApontaNull = treeAtrib.filhaApontaNull;
+    
+    delete [] chaves;
+    chaves = new int[treeAtrib.totalChaves];
+    for(int i=0;i<treeAtrib.totalChaves;i++) chaves[i] = treeAtrib.chaves[i];
+    
+    delete [] filha;
+    filha = new ArvoreB[treeAtrib.totalFilhas];
+    for(int i=0;i<treeAtrib.totalFilhas;i++) filha[i] = treeAtrib.filha[i];
+}
+
 void ArvoreB::incTotalChaves()
 {
     totalChaves++;
@@ -39,20 +56,29 @@ void ArvoreB::insereChave(const int &valor,ArvoreB &tree)
     }
     else
     {
-        if(totalChaves < D-1)
+        if(tree.getTotalChaves() < D-1)
         {
-            chaves[this->totalChaves] = valor;
-            incTotalChaves();
-            inseriuChave();
+            tree.insereElemento(valor);
+            tree.incTotalChaves();
+            tree.setInseriuChave();
         }
         else
         {
-            if(filha == 0)
+            tree.setFilhaApontaNull();
+            if(tree.getFilhaApontaNull())
             {
-                insereFilha();
+                tree.inicializaFilhas();
+                ArvoreB newTree = retornaFilha();
+                insereChave(valor,newTree);
+                tree.incTotalFilhas();
             }
         }
     }
+}
+
+ArvoreB ArvoreB::retornaFilha() const
+{
+    return filha[getTotalChaves()];
 }
 
 void ArvoreB::insereElemento(const int &Elem)
@@ -63,12 +89,6 @@ void ArvoreB::insereElemento(const int &Elem)
 void ArvoreB::inicializaChaves()
 {
     chaves = new int[D-1];
-}
-
-void ArvoreB::insereFilha()
-{
-    filha = new ArvoreB[D];
-    incTotalFilhas();
 }
 
 void ArvoreB::setInseriuChave()
@@ -84,6 +104,11 @@ void ArvoreB::naoInseriuChave()
 bool ArvoreB::getInseriuChave() const
 {
     return this->inseriuChave;
+}
+
+short int ArvoreB::getTotalChaves() const
+{
+    return this->totalChaves;
 }
 
 short int ArvoreB::getTotalFilhas() const
@@ -110,4 +135,20 @@ void ArvoreB::setChaveApontaNull()
 bool ArvoreB::getChaveApontaNull() const
 {
     return this->chaveApontaNull;
+}
+
+void ArvoreB::setFilhaApontaNull()
+{
+    if(this->filha == 0) filhaApontaNull = true;
+    else filhaApontaNull = false;
+}
+
+bool ArvoreB::getFilhaApontaNull() const
+{
+    return this->filhaApontaNull;
+}
+
+void ArvoreB::inicializaFilhas()
+{
+     filha = new ArvoreB[D];
 }
