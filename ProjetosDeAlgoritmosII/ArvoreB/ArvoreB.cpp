@@ -84,7 +84,10 @@ void ArvoreB::insereChave(const int &valor,ArvoreB &tree)
 
 void ArvoreB::insereElemento(const int &Elem)
 {
-    chaves[totalChaves] = Elem;
+    int ind = 0;
+    for(int i=0;i<totalChaves;i++) if(chaves[i] > Elem) ind = i;
+    for(int j=totalChaves-2;j>ind;j--) chaves[j + 1] = chaves[j];
+    chaves[ind] = Elem;
 }
 
 void ArvoreB::inicializaChaves()
