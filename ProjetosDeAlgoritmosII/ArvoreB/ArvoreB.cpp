@@ -68,17 +68,16 @@ void ArvoreB::insereChave(const int &valor,ArvoreB &tree)
             if(tree.getFilhaApontaNull())
             {
                 tree.inicializaFilhas();
-                ArvoreB newTree = retornaFilha();
+                ArvoreB newTree = tree.filha[tree.getTotalFilhas()];
                 insereChave(valor,newTree);
                 tree.incTotalFilhas();
             }
+            else
+            {
+                
+            }
         }
     }
-}
-
-ArvoreB ArvoreB::retornaFilha() const
-{
-    return filha[getTotalChaves()];
 }
 
 void ArvoreB::insereElemento(const int &Elem)
